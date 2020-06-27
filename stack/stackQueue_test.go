@@ -21,9 +21,3 @@ func TestStackQueueAll(t *testing.T) {
 
 }
 
-func BenchmarkStackQueue(b *testing.B) {
-	s := New()
-	for n := 0; n < b.N; n++ {
-		s.Push(10)
-	}
-}
