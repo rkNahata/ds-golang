@@ -1,0 +1,44 @@
+package queue
+
+import (
+	"ds-golang/linkedlist"
+)
+
+type Queue struct {
+	list *linkedlist.SinglyLinkedList
+	size int
+}
+
+func New() *Queue {
+	list := linkedlist.New()
+	return &Queue{list, 0}
+}
+
+func (q *Queue) Enqueue(item int) {
+	q.list.Append(item)
+	q.size++
+}
+
+func (q *Queue) Dequeue() {
+	if q.size > 0 {
+		q.list.DeleteAtTop()
+		q.size--
+	}
+}
+
+func (q *Queue)DequeueRet()*linkedlist.Node{
+	node := q.Peek()
+	if node !=nil{
+		q.list.DeleteAtTop()
+		q.size--
+	}
+	return node
+}
+
+func (q *Queue) Peek() *linkedlist.Node {
+	return q.list.Head
+}
+
+func (q *Queue)Size()int{
+	return q.size
+}

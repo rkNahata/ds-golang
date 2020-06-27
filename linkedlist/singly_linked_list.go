@@ -14,6 +14,10 @@ type SinglyLinkedList struct {
 	Head *Node
 }
 
+func New()*SinglyLinkedList{
+	return &SinglyLinkedList{nil}
+}
+
 func (s *SinglyLinkedList) IsEmpty() bool {
 	if s.Head == nil {
 		return true
@@ -128,6 +132,8 @@ func (s *SinglyLinkedList) RemoveAt(i int) error {
 	currentNode.Next = currentNode.Next.Next
 	return nil
 }
+
+
 
 func (s *SinglyLinkedList) BulkInsert(count int) {
 	for count > 0 {

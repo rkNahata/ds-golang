@@ -61,3 +61,11 @@ func TestMinStack(t *testing.T) {
 		t.Error("expected exist to be false, got true")
 	}
 }
+
+
+func BenchmarkStack(b *testing.B) {
+	s := new(Stack)
+	for n := 0; n < b.N; n++ {
+		s.Push(10)
+	}
+}
