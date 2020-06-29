@@ -6,7 +6,7 @@ type StackQueue struct {
 	q *queue.Queue
 }
 
-func New() *StackQueue {
+func Constructor() *StackQueue {
 	q := queue.New()
 	return &StackQueue{q}
 }

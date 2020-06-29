@@ -16,6 +16,9 @@ type Stack struct {
 	size int
 }
 
+func New() *Stack {
+	return &Stack{top: nil, size: 0,}
+}
 
 func (s *Stack) Push(val interface{}) {
 	s.top = &element{value: val, next: s.top,}
@@ -41,3 +44,6 @@ func (s *Stack) Peek() (val interface{}, exists bool) {
 	return
 }
 
+func (s *Stack) IsEmpty() bool {
+	return s.top == nil
+}
