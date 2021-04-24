@@ -14,7 +14,7 @@ func New() *Queue {
 	return &Queue{list, 0}
 }
 
-func (q *Queue) Enqueue(item int) {
+func (q *Queue) Enqueue(item interface{}) {
 	q.list.Append(item)
 	q.size++
 }
@@ -26,7 +26,7 @@ func (q *Queue) Dequeue() {
 	}
 }
 
-func (q *Queue)DequeueRet()*linkedlist.Node{
+func (q *Queue)DequeueRet()interface{}{
 	node := q.Peek()
 	if node !=nil{
 		q.list.DeleteAtTop()
@@ -35,10 +35,19 @@ func (q *Queue)DequeueRet()*linkedlist.Node{
 	return node
 }
 
-func (q *Queue) Peek() *linkedlist.Node {
+func (q *Queue) Peek() interface{} {
 	return q.list.Head
 }
 
 func (q *Queue)Size()int{
 	return q.size
+}
+
+func (q *Queue)DequeueTreeNode()interface{}{
+	node := q.Peek()
+	if node !=nil{
+		q.list.DeleteAtTop()
+		q.size--
+	}
+	return node
 }
