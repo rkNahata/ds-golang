@@ -70,3 +70,49 @@ func (h *MaxHeap) buildHeap() {
 		h.maxHeapifyDown(i)
 	}
 }
+
+func (h *MaxHeap) Size() int {
+	return len(h.Items)
+}
+
+func (h *MaxHeap) buildHead1(count map[int]int) {
+	for i := len(h.Items)/2 - 1; i >= 0; i-- {
+		h.maxHeapifyDown(i)
+	}
+}
+
+func (h *MaxHeap) maxHeapifyDown1(idx int, count map[int]int) {
+	for (h.HasLeft(idx) && count[h.GetLeftChild(idx)] > count[h.Items[idx]]) ||
+		(h.HasRight(idx) && count[h.GetRightChild(idx)] > count[h.Items[idx]]) {
+		if (h.HasLeft(idx) && count[h.GetLeftChild(idx)] > count[h.Items[idx]]) &&
+			(h.HasRight(idx) && count[h.GetRightChild(idx)] > count[h.Items[idx]]) {
+			if h.GetLeftChild(idx) > h.GetRightChild(idx) {
+				h.Swap(idx, h.GetLeftChildIndex(idx))
+				idx = h.GetLeftChildIndex(idx)
+			} else {
+				h.Swap(idx, h.GetRightChildIndex(idx))
+				idx = h.GetRightChildIndex(idx)
+			}
+		} else if h.HasLeft(idx) && count[h.GetLeftChild(idx)] > count[h.Items[idx]] {
+			h.Swap(idx, h.GetLeftChildIndex(idx))
+			idx = h.GetLeftChildIndex(idx)
+		} else {
+			h.Swap(idx, h.GetRightChildIndex(idx))
+			idx = h.GetRightChildIndex(idx)
+		}
+	}
+
+}
+
+func (h *MaxHeap) maxHeapifyUp1(idx int, count map[int]int) {
+	for h.HasParent(idx) && count[h.GetParent(idx)] < count[h.Items[idx]] {
+		h.Swap(idx, h.GetParentIndex(idx))
+		idx = h.GetParentIndex(idx)
+	}
+}
+
+func (h *MaxHeap) Insert1(item int,count map[int]int) *MaxHeap {
+	h.Items = append(h.Items, item)
+	h.maxHeapifyUp1(len(h.Items) - 1,count)
+	return h
+}

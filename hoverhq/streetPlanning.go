@@ -36,7 +36,7 @@ func streetPlanFib(input int) int {
 	return result * result
 }
 
-func streePlanFibRec(input int) int {
+func streetPlanFibRec(input int) int {
 	result := fibRec(input)
 	return result * result
 }

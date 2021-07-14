@@ -32,7 +32,7 @@ func BenchmarkStreetPlanFib(b *testing.B) {
 func BenchmarkStreetPlanFibRec(b *testing.B) {
 	//279 ns/op
 	for i := 0; i < b.N; i++ {
-		streePlanFibRec(10)
+		streetPlanFibRec(10)
 	}
 }
 
