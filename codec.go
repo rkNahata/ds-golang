@@ -1,7 +1,7 @@
 package main
 
 import (
-	"ds-golang/bTree"
+	"github.com/rknahata/ds-golang/bTree"
 	"strconv"
 	"strings"
 )

@@ -1,7 +1,7 @@
 package maxheap
 
 import (
-	"ds-golang/heaps"
+	"github.com/rknahata/ds-golang/heaps"
 	"log"
 )
 

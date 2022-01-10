@@ -1,9 +1,9 @@
 package graphs
 
 import (
-	"ds-golang/linkedlist"
-	"ds-golang/queue"
 	"fmt"
+	"github.com/rknahata/ds-golang/linkedlist"
+	"github.com/rknahata/ds-golang/queue"
 )
 
 func traversal(graph [][]int, start int) {
