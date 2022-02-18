@@ -1,15 +1,16 @@
 package main
 
-import (
-	"fmt"
-)
+import "github.com/rknahata/ds-golang/backtrack"
 
 func main() {
 
-	trips := [][]int{{2,4,6},{3,2,7},{10,7,9},{8,2,5}}
+	//trips := [][]int{{2,4,6},{3,2,7},{10,7,9},{8,2,5}}
+	//
+	//
+	//fmt.Println(carPooling(trips,14))
 
 
-	fmt.Println(carPooling(trips,14))
+	backtrack.Runner()
 }
 
 

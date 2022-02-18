@@ -9,9 +9,10 @@ func TestFindNumberOfClusters(t *testing.T) {
 		Expected int
 	}
 	tests := []Tests{{Matrix: [][]int{
-		{1, 0, 1, 0, 1},
 		{1, 1, 0, 0, 0},
-		{0, 1, 0, 1, 1}}, Expected: 3,
+		{1, 1, 0, 0, 0},
+		{0, 0, 1, 0, 0},
+		{0, 0, 0, 1, 1}}, Expected: 3,
 	}, {Matrix: [][]int{
 		{1, 0, 1, 0, 1},
 		{1, 0, 1, 0, 0},

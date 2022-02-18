@@ -1,6 +1,8 @@
 package dfs
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func CanFinish(numCourses int, prerequisites [][]int) bool {
 	if len(prerequisites) == 0 {
@@ -45,4 +47,34 @@ func Runner() {
 	preRequisites := [][]int{{1, 0}, {2, 0}, {3, 1}, {3, 2}}
 	numCourses := 4
 	fmt.Println(CanFinish(numCourses, preRequisites))
+}
+
+func combine(n int, k int) [][]int {
+	var result [][]int
+	var comb []int
+	if n < k || k == 0 {
+		return result
+	}
+
+	backtrack(&result, 1, n, k, comb)
+	return result
+}
+
+func backtrack(result *[][]int, start int, n int, k int, comb []int) {
+	if len(comb) == k {
+
+		*result = append(*result, comb)
+		//result = &r
+		var temp []int
+		copy(temp,comb)
+		fmt.Println(result)
+		return
+	}
+
+	for i := start; i <= n; i++ {
+		comb = append(comb, i)
+		backtrack(result, i+1, n, k, comb)
+		comb = comb[:len(comb)-1]
+	}
+	
 }

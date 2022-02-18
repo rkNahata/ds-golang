@@ -1,7 +1,7 @@
 package queue
 
 import (
-	"ds-golang/linkedlist"
+	"github.com/rknahata/ds-golang/linkedlist"
 )
 
 type Queue struct {

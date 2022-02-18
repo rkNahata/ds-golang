@@ -1,6 +1,6 @@
 package bTree
 
-import "ds-golang/queue"
+import "github.com/rknahata/ds-golang/queue"
 
 type NodeWithHorizontalDistance struct {
 	Left *NodeWithHorizontalDistance
