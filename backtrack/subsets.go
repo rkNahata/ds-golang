@@ -16,7 +16,6 @@ func subsets(nums []int) [][]int {
 }
 
 func (bck *BK) backtrack(nums []int, start int) {
-
 	bck.result = append(bck.result, bck.cur)
 	for i := start; i < len(nums); i++ {
 		bck.cur = append(bck.cur, nums[i])

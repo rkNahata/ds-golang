@@ -43,7 +43,6 @@ func longestIncreasingSubsequence(input []int)[]int{
 					table[i] = table[j]+1
 					solution[i] = j
 				}
-
 			}
 		}
 	}

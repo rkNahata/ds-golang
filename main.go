@@ -1,30 +1,27 @@
 package main
 
-import "github.com/rknahata/ds-golang/backtrack"
+import (
+	"github.com/rknahata/ds-golang/graphs"
+	"sort"
+)
 
 func main() {
 
-	//trips := [][]int{{2,4,6},{3,2,7},{10,7,9},{8,2,5}}
-	//
-	//
-	//fmt.Println(carPooling(trips,14))
-
-
-	backtrack.Runner()
+	//interleaver.Runner()
+	graphs.RunPacAtlantic()
 }
-
 
 func carPooling(trips [][]int, capacity int) bool {
 
-	times :=make(map[int]int)
-	for _,trip := range trips{
+	times := make(map[int]int)
+	for _, trip := range trips {
 		times[trip[1]] += trip[0]
-		times[trip[2]]-=trip[0]
+		times[trip[2]] -= trip[0]
 	}
-	for _,value := range times{
-		capacity -=value
+	for _, value := range times {
+		capacity -= value
 	}
-	return capacity>=0
+	return capacity >= 0
 
 	//sort.SliceStable(trips,func(a,b int)bool{
 	//	return trips[a][1]<trips[b][1]
@@ -56,8 +53,31 @@ func carPooling(trips [][]int, capacity int) bool {
 	//
 	//}
 	//return true
-
-
-
 }
 
+func minDeletions(s string) int {
+	freq := make([]int, 26)
+	var maxFreqCount int
+	var deleted int
+	for i := range s {
+		freq[s[i]-'a']++
+		maxFreqCount++
+	}
+	sort.Ints(freq)
+	for i := 25; i >= 0; i-- {
+		if freq[i] > maxFreqCount {
+			deleted += freq[i] - maxFreqCount
+			freq[i] = maxFreqCount
+		}
+		maxFreqCount = max(0, freq[i]-1)
+	}
+
+	return deleted
+}
+
+func max(x, y int) int {
+	if x > y {
+		return x
+	}
+	return y
+}
